@@ -68,4 +68,32 @@ public class MultiLista
         return s;
     }
 
+    public NodoML[] elimina(NodoML r, String[] s, int nivel)
+    {
+        NodoML[] resultado = new NodoML[2];
+        if (r == null)
+        {
+            return resultado;
+        }
+        if (nivel == s.length - 1)
+        {
+            ListaSLML l = new ListaSLML();
+            l.setR(r);
+            NodoML eliminado = l.elimina(new NodoML(null, s[nivel]));
+            resultado[0] = eliminado;
+            resultado[1] = l.getR();
+            return resultado;
+        } else
+        {
+            NodoML aux = busca(r, s[nivel]);
+            if (aux != null)
+            {
+                NodoML[] resAbajo = elimina(aux.getAbajo(), s, nivel + 1);
+                aux.setAbajo(resAbajo[1]);
+                resultado[0] = resAbajo[0];
+            }
+            resultado[1] = r;
+        }
+        return resultado;
+    }
 }

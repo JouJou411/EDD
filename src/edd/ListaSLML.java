@@ -97,10 +97,10 @@ public class ListaSLML
             return null;
         }
         NodoML eliminado = null;
-        if (r.getEt().compareTo(n.getEt()) == 0)
+        if (r.getEt().equals(n.getEt()))
         {
             eliminado = r;
-            r = n.getSig();
+            r = r.getSig();
             eliminado.setSiguiente(null);
             return eliminado;
         }

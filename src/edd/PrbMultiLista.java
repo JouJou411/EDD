@@ -10,6 +10,7 @@ package edd;
  */
 public class PrbMultiLista
 {
+
     public static void main(String[] args)
     {
         MultiLista m = new MultiLista();
@@ -27,32 +28,52 @@ public class PrbMultiLista
         NodoML n12 = new NodoML("IPL", "IPL");
         NodoML n13 = new NodoML("EDD", "EDD");
         NodoML n14 = new NodoML("PRG", "PRG");
-        
-        String s[]= {"UNAM"};
+
+        String s[] =
+        {
+            "UNAM"
+        };
         m.setR(m.inserta(n1, m.getR(), s, 0));
         m.setR(m.inserta(n2, m.getR(), s, 0));
         m.setR(m.inserta(n3, m.getR(), s, 0));
         s = new String[2];
-        s[0]= "UNAM";
+        s[0] = "UNAM";
         m.setR(m.inserta(n4, m.getR(), s, 0));
         m.setR(m.inserta(n5, m.getR(), s, 0));
         m.setR(m.inserta(n6, m.getR(), s, 0));
-        s[0]= "UDG";
+        s[0] = "UDG";
         m.setR(m.inserta(n7, m.getR(), s, 0));
         m.setR(m.inserta(n8, m.getR(), s, 0));
         m.setR(m.inserta(n9, m.getR(), s, 0));
-        s[0]= "UAEM";
+        s[0] = "UAEM";
         m.setR(m.inserta(n10, m.getR(), s, 0));
         m.setR(m.inserta(n11, m.getR(), s, 0));
         m.setR(m.inserta(n12, m.getR(), s, 0));
-        
+
         s = new String[3];
-        s[0]="UAEM";
-        s[0]="ISW";
-        
+        s[0] = "UAEM";
+        s[1] = "ISW";
+
         m.setR(m.inserta(n13, m.getR(), s, 0));
         m.setR(m.inserta(n14, m.getR(), s, 0));
-        
+
+        System.out.println(m.desp(m.getR(), ""));
+
+        s[0] = "UAEM";
+        s[1] = "ISW";
+        s[2] = "EDD";
+        NodoML[] resultado = m.elimina(m.getR(), s, 0);
+
+        if (resultado[0] != null)
+        {
+            System.out.println("Nodo eliminado: " + resultado[0].getEt());
+        } else
+        {
+            System.out.println("Nodo no encontrado.");
+        }
+
+        m.setR(resultado[1]);
+
         System.out.println(m.desp(m.getR(), ""));
     }
 }

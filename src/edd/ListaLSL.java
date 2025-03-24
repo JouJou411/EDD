@@ -91,7 +91,8 @@ public class ListaLSL
             System.out.println("Lista vacia");
             return null;
         }
-        if (r.getEtiqueta().compareTo(n.getEtiqueta()) > 0){
+        if (r.getEtiqueta().compareTo(n.getEtiqueta()) > 0)
+        {
             System.out.println("Nodo no encontrado");
             return null;
         }
@@ -99,7 +100,7 @@ public class ListaLSL
         if (r.getEtiqueta().compareTo(n.getEtiqueta()) == 0)
         {
             eliminado = r;
-            r = n.getSiguiente();
+            r = r.getSiguiente();
             eliminado.setSiguiente(null);
             return eliminado;
         }
