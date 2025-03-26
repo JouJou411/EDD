@@ -8,31 +8,31 @@ package edd;
  *
  * @author Joabp
  */
-public class ListaDL
+public class ListaDLML
 {
 
-    private NodoD r;
+    private NodoML r;
 
-    public ListaDL(NodoD r)
+    public ListaDLML(NodoML r)
     {
         this.r = r;
     }
 
-    public ListaDL()
+    public ListaDLML()
     {
     }
 
-    public NodoD getR()
+    public NodoML getR()
     {
         return r;
     }
 
-    public void setR(NodoD r)
+    public void setR(NodoML r)
     {
         this.r = r;
     }
 
-    public void inserta(NodoD n)
+    public void inserta(NodoML n)
     {
         if (n == null)
         {
@@ -51,7 +51,7 @@ public class ListaDL
                     r = n;
                 } else
                 {
-                    NodoD aux = r;
+                    NodoML aux = r;
                     while (aux.getSig() != null)
                     {
                         if (aux.getSig().getEt().compareTo(n.getEt()) > 0)
@@ -78,7 +78,7 @@ public class ListaDL
             return "Lista vacia";
         }
         String s = "";
-        NodoD aux = r;
+        NodoML aux = r;
         while (aux != null)
         {
             s += aux.getEt() + "\t";
@@ -99,7 +99,7 @@ public class ListaDL
         return s;
     }
 
-    public String despRecursivo(NodoD aux, String s)
+    public String despRecursivo(NodoML aux, String s)
     {
         if (aux != null)
         {
@@ -108,14 +108,14 @@ public class ListaDL
         return s;
     }
 
-    public NodoD elimina(String et)
+    public NodoML elimina(NodoML n)
     {
-        if (r == null || r.getEt().compareTo(et) > 0)
+        if (r == null || r.getEt().compareTo(n.getEt()) > 0)
         {
             return null;
         }
-        NodoD eliminado = null;
-        if (r.getEt().compareTo(et) == 0)
+        NodoML eliminado = null;
+        if (r.getEt().compareTo(n.getEt()) == 0)
         {
             eliminado = r;
             r = r.getSig();
@@ -125,10 +125,10 @@ public class ListaDL
             }
             return eliminado;
         }
-        NodoD aux = r;
+        NodoML aux = r;
         while (aux.getSig() != null)
         {
-            if (aux.getSig().getEt().compareTo(et) == 0)
+            if (aux.getSig().getEt().compareTo(n.getEt()) == 0)
             {
                 eliminado = aux.getSig();
                 aux.setSig(eliminado.getSig());

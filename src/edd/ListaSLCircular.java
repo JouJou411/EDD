@@ -37,26 +37,26 @@ public class ListaSLCircular
         if (r == null)
         {
             r = n;
-            n.setSiguiente(n);
+            n.setSig(n);
         } else
         {
-            if (n.getEtiqueta().compareTo(r.getSiguiente().getEtiqueta()) < 0 || n.getEtiqueta().compareTo(r.getEtiqueta()) > 0)
+            if (n.getEt().compareTo(r.getSig().getEt()) < 0 || n.getEt().compareTo(r.getEt()) > 0)
             {
-                n.setSiguiente(r.getSiguiente());
-                r.setSiguiente(n);
-                if (n.getEtiqueta().compareTo(r.getEtiqueta()) > 0)
+                n.setSig(r.getSig());
+                r.setSig(n);
+                if (n.getEt().compareTo(r.getEt()) > 0)
                 {
                     r = n;
                 }
             } else
             {
-                Nodo aux = r.getSiguiente();
-                while (aux.getSiguiente().getEtiqueta().compareTo(n.getEtiqueta()) < 0)
+                Nodo aux = r.getSig();
+                while (aux.getSig().getEt().compareTo(n.getEt()) < 0)
                 {
-                    aux = aux.getSiguiente();
+                    aux = aux.getSig();
                 }
-                n.setSiguiente(aux.getSiguiente());
-                aux.setSiguiente(n);
+                n.setSig(aux.getSig());
+                aux.setSig(n);
             }
         }
     }
@@ -66,13 +66,13 @@ public class ListaSLCircular
         if (r != null)
         {
             String s = "";
-            Nodo aux = r.getSiguiente();
+            Nodo aux = r.getSig();
             while (aux != r)
             {
-                s += aux.getEtiqueta() + "\t";
-                aux = aux.getSiguiente();
+                s += aux.getEt() + "\t";
+                aux = aux.getSig();
             }
-            return s += r.getEtiqueta();
+            return s += r.getEt();
         } else
         {
             return "Lista vacia";
@@ -87,31 +87,31 @@ public class ListaSLCircular
             System.out.println("Lita vacia");
         } else
         {
-            if (r.getSiguiente().getEtiqueta().compareTo(et) > 0 || r.getEtiqueta().compareTo(et) < 0)
+            if (r.getSig().getEt().compareTo(et) > 0 || r.getEt().compareTo(et) < 0)
             {
                 System.out.println("No existe dato");
             } else
             {
                 Nodo n;
-                if (r.getSiguiente().getEtiqueta().equals(et))
+                if (r.getSig().getEt().equals(et))
                 {
-                    n = r.getSiguiente();
-                    r.setSiguiente(n.getSiguiente());
-                    n.setSiguiente(null);
+                    n = r.getSig();
+                    r.setSig(n.getSig());
+                    n.setSig(null);
                     return n;
                 } else
                 {
-                    Nodo aux = r.getSiguiente();
+                    Nodo aux = r.getSig();
                     while (aux != r)
                     {
-                        if (aux.getSiguiente().getEtiqueta().equals(et))
+                        if (aux.getSig().getEt().equals(et))
                         {
-                            n = r.getSiguiente();
-                            r.setSiguiente(n.getSiguiente());
-                            n.setSiguiente(null);
+                            n = r.getSig();
+                            r.setSig(n.getSig());
+                            n.setSig(null);
                             return n;
                         } else {
-                            aux = aux.getSiguiente();
+                            aux = aux.getSig();
                         }
                     }
                 }

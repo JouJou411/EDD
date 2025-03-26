@@ -41,7 +41,7 @@ public class PilaDinamica
         {
             if (t != null)
             {
-                n.setSiguiente(t);
+                n.setSig(t);
             }
             t = n;
         }
@@ -53,8 +53,8 @@ public class PilaDinamica
         if (t != null)
         {
             n = t;
-            t = t.getSiguiente();
-            n.setSiguiente(null);
+            t = t.getSig();
+            n.setSig(null);
         } else
         {
             System.out.println("Pila vacias");

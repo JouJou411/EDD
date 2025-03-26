@@ -8,10 +8,11 @@ package edd;
  *
  * @author Joabp
  */
-public class MultiLista
+public class MultiListaDL
 {
 
     private NodoML r = null;
+    private boolean b = false;
 
     public NodoML getR()
     {
@@ -23,13 +24,24 @@ public class MultiLista
         this.r = r;
     }
 
+    public boolean isB()
+    {
+        return b;
+    }
+
+    public void setB(boolean b)
+    {
+        this.b = b;
+    }
+
     public NodoML inserta(NodoML obj, NodoML r, String[] s, int nivel)
     {
         if (nivel == s.length - 1)
         {
-            ListaSLML l = new ListaSLML();
+            ListaDLML l = new ListaDLML();
             l.setR(r);
             l.inserta(obj);
+            b = true;
             return l.getR();
         } else
         {
@@ -37,7 +49,13 @@ public class MultiLista
             if (aux != null)
             {
                 aux.setAbj(inserta(obj, aux.getAbj(), s, nivel + 1));
+                if (b)
+                {
+                    obj.setArb(aux);
+                    b = false;
+                }
             }
+
             return r;
         }
     }
@@ -62,7 +80,12 @@ public class MultiLista
         String s = "";
         while (r != null)
         {
-            s += t + r.getEt() + "\n" + desp(r.getAbj(), t + "\t");
+            String superior = "";
+            if (r.getArb() != null)
+            {
+                superior = " (Padre: " + r.getArb().getEt() + ")";
+            }
+            s += t + r.getEt() + superior + "\n" + desp(r.getAbj(), t + "\t");
             r = r.getSig();
         }
         return s;
@@ -78,10 +101,11 @@ public class MultiLista
         {
             if (nivel == s.length - 1)
             {
-                ListaSLML l = new ListaSLML();
+                ListaDLML l = new ListaDLML();
                 l.setR(r);
                 NodoML eliminado = l.elimina(new NodoML(null, s[nivel]));
                 resultado[0] = eliminado;
+                resultado[0].setArb(null);
                 resultado[1] = l.getR();
                 return resultado;
             } else

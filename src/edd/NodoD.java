@@ -22,7 +22,7 @@ public class NodoD<T>
         this.etiqueta = etiqueta;
     }
 
-    public String getEtiqueta()
+    public String getEt()
     {
         return etiqueta;
     }
@@ -42,22 +42,22 @@ public class NodoD<T>
         this.obj = obj;
     }
 
-    public NodoD getSiguiente()
+    public NodoD getSig()
     {
         return siguiente;
     }
 
-    public void setSiguiente(NodoD siguiente)
+    public void setSig(NodoD siguiente)
     {
         this.siguiente = siguiente;
     }
 
-    public NodoD getAnterior()
+    public NodoD getAnt()
     {
         return anterior;
     }
 
-    public void setAnterior(NodoD anterior)
+    public void setAnt(NodoD anterior)
     {
         this.anterior = anterior;
     }

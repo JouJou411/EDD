@@ -14,8 +14,6 @@ public class NodoML<T>
     private T obj;
     private String etiqueta;
     private NodoML siguiente, anterior, arriba, abajo;
-//    private NodoML 
-    
 
     public NodoML(T obj, String etiqueta)
     {
@@ -32,7 +30,7 @@ public class NodoML<T>
         return etiqueta;
     }
 
-    public void setEtiqueta(String etiqueta)
+    public void setEt(String etiqueta)
     {
         this.etiqueta = etiqueta;
     }
@@ -52,37 +50,37 @@ public class NodoML<T>
         return siguiente;
     }
 
-    public void setSiguiente(NodoML siguiente)
+    public void setSig(NodoML siguiente)
     {
         this.siguiente = siguiente;
     }
 
-    public NodoML getAnterior()
+    public NodoML getAnt()
     {
         return anterior;
     }
 
-    public void setAnterior(NodoML anterior)
+    public void setAnt(NodoML anterior)
     {
         this.anterior = anterior;
     }
 
-    public NodoML getArriba()
+    public NodoML getArb()
     {
         return arriba;
     }
 
-    public void setArriba(NodoML arriba)
+    public void setArb(NodoML arriba)
     {
         this.arriba = arriba;
     }
 
-    public NodoML getAbajo()
+    public NodoML getAbj()
     {
         return abajo;
     }
 
-    public void setAbajo(NodoML abajo)
+    public void setAbj(NodoML abajo)
     {
         this.abajo = abajo;
     }

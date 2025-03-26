@@ -30,12 +30,12 @@ public class PrbListasSLCircular
         lSL.inserta(n5);
         System.out.println(lSL.desp());
         
-        System.out.println(lSL.elimina(n4.getEtiqueta()));
-        System.out.println(lSL.elimina(n6.getEtiqueta()));
-        System.out.println(lSL.elimina(n2.getEtiqueta()));
-        System.out.println(lSL.elimina(n7.getEtiqueta()));
-        System.out.println(lSL.elimina(n3.getEtiqueta()));
-        System.out.println(lSL.elimina(n1.getEtiqueta()));
-        System.out.println(lSL.elimina(n1.getEtiqueta()));
+        System.out.println(lSL.elimina(n4.getEt()));
+        System.out.println(lSL.elimina(n6.getEt()));
+        System.out.println(lSL.elimina(n2.getEt()));
+        System.out.println(lSL.elimina(n7.getEt()));
+        System.out.println(lSL.elimina(n3.getEt()));
+        System.out.println(lSL.elimina(n1.getEt()));
+        System.out.println(lSL.elimina(n1.getEt()));
     }
 }

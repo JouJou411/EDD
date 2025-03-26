@@ -48,7 +48,7 @@ public class ListaSLML
 
         if (r.getEt().compareTo(n.getEt()) > 0)
         {
-            n.setSiguiente(r);
+            n.setSig(r);
             r = n;
             return;
         }
@@ -59,8 +59,8 @@ public class ListaSLML
             aux = aux.getSig();
         }
 
-        n.setSiguiente(aux.getSig());
-        aux.setSiguiente(n);
+        n.setSig(aux.getSig());
+        aux.setSig(n);
     }
 
     public String desp()
@@ -101,7 +101,7 @@ public class ListaSLML
         {
             eliminado = r;
             r = r.getSig();
-            eliminado.setSiguiente(null);
+            eliminado.setSig(null);
             return eliminado;
         }
         NodoML aux = r;
@@ -110,8 +110,8 @@ public class ListaSLML
             if (aux.getSig().getEt().compareTo(n.getEt()) == 0)
             {
                 eliminado = aux.getSig();
-                aux.setSiguiente(eliminado.getSig());
-                eliminado.setSiguiente(null);
+                aux.setSig(eliminado.getSig());
+                eliminado.setSig(null);
                 return eliminado;
             }
             aux = aux.getSig();

@@ -46,21 +46,21 @@ public class ListaLSL
             return;
         }
 
-        if (r.getEtiqueta().compareTo(n.getEtiqueta()) > 0)
+        if (r.getEt().compareTo(n.getEt()) > 0)
         {
-            n.setSiguiente(r);
+            n.setSig(r);
             r = n;
             return;
         }
 
         Nodo aux = r;
-        while (aux.getSiguiente() != null && aux.getSiguiente().getEtiqueta().compareTo(n.getEtiqueta()) < 0)
+        while (aux.getSig() != null && aux.getSig().getEt().compareTo(n.getEt()) < 0)
         {
-            aux = aux.getSiguiente();
+            aux = aux.getSig();
         }
 
-        n.setSiguiente(aux.getSiguiente());
-        aux.setSiguiente(n);
+        n.setSig(aux.getSig());
+        aux.setSig(n);
     }
 
     public String desp()
@@ -69,8 +69,8 @@ public class ListaLSL
         Nodo aux = r;
         while (aux != null)
         {
-            s += aux.getEtiqueta() + "\t";
-            aux = aux.getSiguiente();
+            s += aux.getEt() + "\t";
+            aux = aux.getSig();
         }
         return s;
     }
@@ -79,7 +79,7 @@ public class ListaLSL
     {
         if (aux != null)
         {
-            s += aux.getEtiqueta() + "\t" + despRecursivo(aux.getSiguiente(), s);
+            s += aux.getEt() + "\t" + despRecursivo(aux.getSig(), s);
         }
         return s;
     }
@@ -91,30 +91,30 @@ public class ListaLSL
             System.out.println("Lista vacia");
             return null;
         }
-        if (r.getEtiqueta().compareTo(n.getEtiqueta()) > 0)
+        if (r.getEt().compareTo(n.getEt()) > 0)
         {
             System.out.println("Nodo no encontrado");
             return null;
         }
         Nodo eliminado = null;
-        if (r.getEtiqueta().compareTo(n.getEtiqueta()) == 0)
+        if (r.getEt().compareTo(n.getEt()) == 0)
         {
             eliminado = r;
-            r = r.getSiguiente();
-            eliminado.setSiguiente(null);
+            r = r.getSig();
+            eliminado.setSig(null);
             return eliminado;
         }
         Nodo aux = r;
-        while (aux.getSiguiente() != null)
+        while (aux.getSig() != null)
         {
-            if (aux.getSiguiente().getEtiqueta().compareTo(n.getEtiqueta()) == 0)
+            if (aux.getSig().getEt().compareTo(n.getEt()) == 0)
             {
-                eliminado = aux.getSiguiente();
-                aux.setSiguiente(eliminado.getSiguiente());
-                eliminado.setSiguiente(null);
+                eliminado = aux.getSig();
+                aux.setSig(eliminado.getSig());
+                eliminado.setSig(null);
                 return eliminado;
             }
-            aux = aux.getSiguiente();
+            aux = aux.getSig();
         }
         return eliminado;
     }

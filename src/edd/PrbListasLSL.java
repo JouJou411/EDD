@@ -26,7 +26,7 @@ public class PrbListasLSL
         System.out.println(lSL.desp());
         System.out.println(lSL.despRecursivo(lSL.getR(),""));
         
-        //System.out.println(n1.getEtiqueta().compareTo(n1.getEtiqueta()));
+        //System.out.println(n1.getEt().compareTo(n1.getEt()));
         
         System.out.println(lSL.elimina(n4));
         System.out.println(lSL.elimina(n2));

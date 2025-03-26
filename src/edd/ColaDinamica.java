@@ -53,7 +53,7 @@ public class ColaDinamica
         {
             if (a != null)
             {
-                a.setSiguiente(n);
+                a.setSig(n);
             } else
             {
                 f = n;
@@ -70,8 +70,8 @@ public class ColaDinamica
             return null;
         }
         Nodo n = f;
-        f = f.getSiguiente();
-        n.setSiguiente(null);
+        f = f.getSig();
+        n.setSig(null);
         if (f == null)
         {
             a = f;

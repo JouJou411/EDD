@@ -37,8 +37,8 @@ public class PrbListasDLCircular
         System.out.println(lDL.desp());
         System.out.println("");
 
-//        System.out.println(n3.getEtiqueta().compareTo("10"));
-//        System.out.println(n3.getEtiqueta().compareTo("F"));
+//        System.out.println(n3.getEt().compareTo("10"));
+//        System.out.println(n3.getEt().compareTo("F"));
         System.out.println(lDL.elimina("F"));
         System.out.println(lDL.elimina("C"));
         System.out.println(lDL.desp());

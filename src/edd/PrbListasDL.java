@@ -27,8 +27,8 @@ public class PrbListasDL
         System.out.println(lDL.desp());
 //        System.out.println(lDL.despRecursivo(lDL.getR(),""));
 //        
-//        System.out.println(n1.getEtiqueta().compareTo(n2.getEtiqueta()));
-//        System.out.println(n1.getEtiqueta().compareTo(n4.getEtiqueta()));
+//        System.out.println(n1.getEt().compareTo(n2.getEt()));
+//        System.out.println(n1.getEt().compareTo(n4.getEt()));
         System.out.println(lDL.elimina("D"));
         System.out.println(lDL.desp());
         System.out.println(lDL.elimina("B"));

@@ -21,7 +21,7 @@ public class Nodo<T>
         this.etiqueta = etiqueta;
     }
 
-    public String getEtiqueta()
+    public String getEt()
     {
         return etiqueta;
     }
@@ -41,12 +41,12 @@ public class Nodo<T>
         this.obj = obj;
     }
 
-    public Nodo getSiguiente()
+    public Nodo getSig()
     {
         return siguiente;
     }
 
-    public void setSiguiente(Nodo siguiente)
+    public void setSig(Nodo siguiente)
     {
         this.siguiente = siguiente;
     }

@@ -37,31 +37,31 @@ public class ListaDLCircular
         if (r == null)
         {
             r = n;
-            n.setSiguiente(n);
-            n.setAnterior(n);
+            n.setSig(n);
+            n.setAnt(n);
         } else
         {
-            NodoD aux = r.getSiguiente();
-            if (n.getEtiqueta().compareTo(aux.getEtiqueta()) < 0 || n.getEtiqueta().compareTo(r.getEtiqueta()) > 0)
+            NodoD aux = r.getSig();
+            if (n.getEt().compareTo(aux.getEt()) < 0 || n.getEt().compareTo(r.getEt()) > 0)
             {
-                n.setSiguiente(aux);
-                n.setAnterior(r);
-                aux.setAnterior(n);
-                r.setSiguiente(n);
-                if (n.getEtiqueta().compareTo(r.getEtiqueta()) > 0)
+                n.setSig(aux);
+                n.setAnt(r);
+                aux.setAnt(n);
+                r.setSig(n);
+                if (n.getEt().compareTo(r.getEt()) > 0)
                 {
                     r = n;
                 }
             } else
             {
-                while (aux.getSiguiente() != r.getSiguiente() && aux.getSiguiente().getEtiqueta().compareTo(n.getEtiqueta()) < 0)
+                while (aux.getSig() != r.getSig() && aux.getSig().getEt().compareTo(n.getEt()) < 0)
                 {
-                    aux = aux.getSiguiente();
+                    aux = aux.getSig();
                 }
-                n.setSiguiente(aux.getSiguiente());
-                n.setAnterior(aux);
-                aux.getSiguiente().setAnterior(n);
-                aux.setSiguiente(n);
+                n.setSig(aux.getSig());
+                n.setAnt(aux);
+                aux.getSig().setAnt(n);
+                aux.setSig(n);
             }
         }
     }
@@ -73,18 +73,18 @@ public class ListaDLCircular
             return "Lista vacia";
         }
         String s = "";
-        NodoD aux = r.getSiguiente();
+        NodoD aux = r.getSig();
         do
         {
-            s += aux.getEtiqueta() + "\t";
-            aux = aux.getSiguiente();
-        } while (aux != r.getSiguiente());
+            s += aux.getEt() + "\t";
+            aux = aux.getSig();
+        } while (aux != r.getSig());
         s += "\n";
         aux = r;
         do
         {
-            s += aux.getEtiqueta() + "\t";
-            aux = aux.getAnterior();
+            s += aux.getEt() + "\t";
+            aux = aux.getAnt();
         } while (aux != r);
         return s;
     }
@@ -100,32 +100,32 @@ public class ListaDLCircular
         NodoD n = null;
         do
         {
-            if (aux.getEtiqueta().equals(et))
+            if (aux.getEt().equals(et))
             {
                 n = aux;
                 break;
             }
-            aux = aux.getSiguiente();
+            aux = aux.getSig();
         } while (aux != r);
         if (n == null)
         {
             System.out.println("No existe dato");
             return null;
         }
-        if (n == r && r.getSiguiente() == r)
+        if (n == r && r.getSig() == r)
         {
             r = null;
         } else
         {
-            n.getAnterior().setSiguiente(n.getSiguiente());
-            n.getSiguiente().setAnterior(n.getAnterior());
+            n.getAnt().setSig(n.getSig());
+            n.getSig().setAnt(n.getAnt());
             if (n == r)
             {
-                r = n.getAnterior();
+                r = n.getAnt();
             }
         }
-        n.setSiguiente(null);
-        n.setAnterior(null);
+        n.setSig(null);
+        n.setAnt(null);
         return n;
     }
 }

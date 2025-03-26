@@ -43,9 +43,9 @@ public class ColaCircularDinamica
             {
                 a = n;
             }
-            n.setSiguiente(a.getSiguiente());
-            a.setSiguiente(n);
-            a = a.getSiguiente();
+            n.setSig(a.getSig());
+            a.setSig(n);
+            a = a.getSig();
         }
     }
 
@@ -56,15 +56,15 @@ public class ColaCircularDinamica
             System.out.println("Cola circular vacia");
             return null;
         }
-        Nodo n = a.getSiguiente();
+        Nodo n = a.getSig();
         if (a == n)
         {
             a = null;
         } else
         {
-            a.setSiguiente(n.getSiguiente());
+            a.setSig(n.getSig());
         }
-        n.setSiguiente(null);
+        n.setSig(null);
         return n;
     }
 }
