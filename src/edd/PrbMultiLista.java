@@ -61,9 +61,8 @@ public class PrbMultiLista
 
         s[0] = "UAEM";
         s[1] = "ISW";
-        s[2] = "EDD";
+        s[2] = "PRG";
         NodoML[] resultado = m.elimina(m.getR(), s, 0);
-
         if (resultado[0] != null)
         {
             System.out.println("Nodo eliminado: " + resultado[0].getEt());
@@ -71,9 +70,21 @@ public class PrbMultiLista
         {
             System.out.println("Nodo no encontrado.");
         }
-
         m.setR(resultado[1]);
+        System.out.println(m.desp(m.getR(), ""));
 
+        s = new String[2];
+        s[0] = "UAEM";
+        s[1] = "ISW";
+        resultado = m.elimina(m.getR(), s, 0);
+        if (resultado[0] != null)
+        {
+            System.out.println("Nodo eliminado: " + resultado[0].getEt());
+        } else
+        {
+            System.out.println("Nodo no encontrado.");
+        }
+        m.setR(resultado[1]);
         System.out.println(m.desp(m.getR(), ""));
     }
 }
