@@ -12,9 +12,9 @@ public class NodoArbol<T>
 {
 
     private T obj;
-    private NodoArbol der;
-    private NodoArbol izq;
+    private NodoArbol der, izq;
     private String et;
+    private int altura;
 
     public NodoArbol()
     {
@@ -24,6 +24,16 @@ public class NodoArbol<T>
     {
         this.obj = obj;
         this.et = et;
+    }
+
+    public int getAltura()
+    {
+        return altura;
+    }
+
+    public void setAltura(int altura)
+    {
+        this.altura = altura;
     }
 
     public T getObj()
@@ -64,6 +74,12 @@ public class NodoArbol<T>
     public void setEt(String et)
     {
         this.et = et;
+    }
+
+    public NodoArbol(String et)
+    {
+        this.et = et;
+        this.altura = 1;
     }
 
 }
