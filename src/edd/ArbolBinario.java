@@ -75,8 +75,96 @@ public class ArbolBinario
         return s;
     }
 
-//    public NodoArbol elimina()
-//    {
-//
-//    }
+    private int altura(NodoArbol n)
+    {
+        return n == null ? 0 : n.getAltura();
+    }
+
+    private int getBalance(NodoArbol n)
+    {
+        return n == null ? 0 : altura(n.getIzq()) - altura(n.getDer());
+    }
+
+    private NodoArbol rotacionDerecha(NodoArbol y)
+    {
+        NodoArbol x = y.getIzq();
+        NodoArbol T2 = x.getDer();
+
+        x.setDer(y);
+        y.setIzq(T2);
+
+        y.setAltura(Math.max(altura(y.getIzq()), altura(y.getDer())) + 1);
+        x.setAltura(Math.max(altura(x.getIzq()), altura(x.getDer())) + 1);
+
+        return x;
+    }
+
+    private NodoArbol rotacionIzquierda(NodoArbol x)
+    {
+        NodoArbol y = x.getDer();
+        NodoArbol T2 = y.getIzq();
+
+        y.setIzq(x);
+        x.setDer(T2);
+
+        x.setAltura(Math.max(altura(x.getIzq()), altura(x.getDer())) + 1);
+        y.setAltura(Math.max(altura(y.getIzq()), altura(y.getDer())) + 1);
+
+        return y;
+    }
+
+    public NodoArbol insertaAVL(NodoArbol nodo, NodoArbol obj)
+    {
+        if (nodo == null)
+        {
+            return obj;
+        }
+        if (obj.getEt().compareTo(nodo.getEt()) < 0)
+        {
+            nodo.setIzq(insertaAVL(nodo.getIzq(), obj));
+        } else if (obj.getEt().compareTo(nodo.getEt()) > 0)
+        {
+            nodo.setDer(insertaAVL(nodo.getDer(), obj));
+        } else
+        {
+            return nodo;
+        }
+        nodo.setAltura(1 + Math.max(altura(nodo.getIzq()), altura(nodo.getDer())));
+
+        int balance = getBalance(nodo);
+
+        if (balance > 1 && obj.getEt().compareTo(nodo.getIzq().getEt()) < 0)
+        {
+            return rotacionDerecha(nodo);
+        }
+        if (balance < -1 && obj.getEt().compareTo(nodo.getDer().getEt()) > 0)
+        {
+            return rotacionIzquierda(nodo);
+        }
+        if (balance > 1 && obj.getEt().compareTo(nodo.getIzq().getEt()) > 0)
+        {
+            nodo.setIzq(rotacionIzquierda(nodo.getIzq()));
+            return rotacionDerecha(nodo);
+        }
+        if (balance < -1 && obj.getEt().compareTo(nodo.getDer().getEt()) < 0)
+        {
+            nodo.setDer(rotacionDerecha(nodo.getDer()));
+            return rotacionIzquierda(nodo);
+        }
+        return nodo;
+    }
+
+    public void imprimirArbol(NodoArbol nodo, int nivel)
+    {
+        if (nodo != null)
+        {
+            imprimirArbol(nodo.getDer(), nivel + 1);
+            for (int i = 0; i < nivel; i++)
+            {
+                System.out.print("    ");
+            }
+            System.out.println(nodo.getEt());
+            imprimirArbol(nodo.getIzq(), nivel + 1);
+        }
+    }
 }
